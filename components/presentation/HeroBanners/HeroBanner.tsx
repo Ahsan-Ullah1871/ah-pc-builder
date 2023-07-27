@@ -21,7 +21,7 @@ const HeroBanner = () => {
 				</button>
 			</div>
 			{/* image */}
-			<div className=" flex-grow flex flex-col sm:flex-row sm:items-end">
+			<div className=" flex-grow md:flex-none flex flex-col sm:flex-row sm:items-end">
 				<div className="relative">
 					{/* Main image */}
 					<Image
@@ -31,7 +31,7 @@ const HeroBanner = () => {
 						alt="test"
 					/>
 					{/* price tag */}
-					<p className="bg-[#FB8F2C] px-4 py-3  text-2xl  font-semibold font-libre absolute  bottom-20 -left-8">
+					<p className="bg-[#FB8F2C] px-4 py-3  text-2xl  font-semibold font-libre absolute  bottom-20  sm:-left-8">
 						Price:$11
 					</p>
 				</div>
