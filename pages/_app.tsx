@@ -1,3 +1,4 @@
+import Header from "@/components/presentation/Header/Header";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Inter, Libre_Bodoni, Plus_Jakarta_Sans } from "next/font/google";
@@ -19,8 +20,9 @@ export const plus_jakarta_sans = Plus_Jakarta_Sans({
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<main
-			className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen`}
+			className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen px-4`}
 		>
+			<Header />
 			<Component {...pageProps} />
 		</main>
 	);
