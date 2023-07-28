@@ -17,11 +17,11 @@ const Category = ({
 	return (
 		<div
 			className={cn(
-				"w-[130px]  h-[130px] rounded-full flex flex-col gap-1 items-center justify-center ",
+				"  w-[75px] md:w-[130px] h-[75px]  md:h-[130px] rounded-full flex flex-col gap-1 items-center justify-center ",
 				card_styles
 			)}
 		>
-			<div className="w-20 h-20 relative">
+			<div className=" w-14 md:w-20 h-14  md:h-20 relative">
 				<Image
 					alt=""
 					src={image_url}

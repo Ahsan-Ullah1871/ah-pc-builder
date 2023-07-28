@@ -33,15 +33,17 @@ export default function Home() {
 			<ProductsCarousel />
 
 			{/* Featured listings */}
-			<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
-				<Title title="Most popular food" />
-				<Description
-					description="A list of most popular Bangladeshi food including mains, drinks, and deserts you must try while in Bangladesh, for an authentic experience. Check now!"
-					className="text-center"
-				/>
-			</div>
+			<div className="mt-20">
+				<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
+					<Title title="Most popular food" />
+					<Description
+						description="A list of most popular Bangladeshi food including mains, drinks, and deserts you must try while in Bangladesh, for an authentic experience. Check now!"
+						className="text-center"
+					/>
+				</div>
 
-			<Categories />
+				<Categories />
+			</div>
 		</div>
 	);
 }
