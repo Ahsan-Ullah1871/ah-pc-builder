@@ -3,6 +3,8 @@ import Header from "@/components/presentation/Header/Header";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Inter, Libre_Bodoni, Plus_Jakarta_Sans } from "next/font/google";
+import "swiper/css";
+import "swiper/css/navigation";
 
 export const inter = Inter({
 	subsets: ["latin"],
