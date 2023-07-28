@@ -1,6 +1,10 @@
+import SecondaryButton from "@/components/shared/SecondaryButton";
+import { IProduct } from "@/types/CommonType";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-const HeroBanner = () => {
+const HeroBanner = ({ product }: { product: IProduct }) => {
+	const router = useRouter();
 	return (
 		<div className="   mx-auto bg-transparent w-full flex flex-col md:flex-row items-center justify-start  gap-8">
 			{/* desc */}
@@ -9,16 +13,19 @@ const HeroBanner = () => {
 					Hi, new friend!
 				</p>
 				<p className=" max-w-2xl mt-3  text-4xl md:text-6xl  font-libre  capitalize text-[#fff] ">
-					We do not cook, we create your emotions!
+					Craft Your Perfect PC: Empowering Your
+					Digital Odyssey!
 				</p>
 				<p className="max-w-lg  mt-5 text-base font-jakarta text-[#FFFFFF] ">
-					{`There's evidence that cooking, like other creative practices, can
-          boost well-being, self-esteem, and other measures of mental health.`}
+					{product?.short_desc}
 				</p>
+
 				{/* button */}
-				<button className=" mt-10 text-[#FB8F2C] font-jakarta text-base border-b border-[#FB8F2C] ">
-					Our menu
-				</button>
+				<SecondaryButton
+					onClick={(e) => router.push("/products")}
+					title={product.name}
+					button_styles="mt-10 text-primary"
+				/>
 			</div>
 			{/* image */}
 			<div className=" flex-grow md:flex-none flex flex-col sm:flex-row sm:items-end">
@@ -32,7 +39,7 @@ const HeroBanner = () => {
 					/>
 					{/* price tag */}
 					<p className="bg-[#FB8F2C] px-4 py-3  text-2xl  font-semibold font-libre absolute  bottom-20  sm:-left-8">
-						Price:$11
+						Price:$${product.price}
 					</p>
 				</div>
 				{/* Thumb images */}

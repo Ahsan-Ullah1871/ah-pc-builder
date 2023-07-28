@@ -1,16 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { type } from "os";
+import { cn } from "@/utils/classNames";
 
 type IButton = {
 	title: string;
-	onClick: (e: any) => void;
+	button_styles?: string;
+	onClick?: (e: any) => void;
 };
 
-const SecondaryButton = ({ title, onClick }: IButton) => {
+const SecondaryButton = ({ title, onClick, button_styles }: IButton) => {
 	return (
 		<motion.button
-			className=" group relative font-jakarta text-base  "
+			className={cn(
+				" group relative font-jakarta text-base  ",
+				button_styles
+			)}
 			whileHover="hover"
 			initial={{ color: "white" }}
 			variants={{
@@ -18,7 +23,7 @@ const SecondaryButton = ({ title, onClick }: IButton) => {
 					color: "#FB8F2C",
 				},
 			}}
-			onClick={(e) => onClick(e)}
+			onClick={(e) => onClick && onClick(e)}
 		>
 			{title}
 			<motion.div
@@ -37,4 +42,5 @@ const SecondaryButton = ({ title, onClick }: IButton) => {
 };
 
 export default SecondaryButton;
+
 

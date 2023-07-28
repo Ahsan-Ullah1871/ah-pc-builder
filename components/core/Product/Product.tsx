@@ -3,8 +3,13 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import SecondaryButton from "@/components/shared/SecondaryButton";
+import { IProduct } from "@/types/CommonType";
+import { useRouter } from "next/router";
+import Rating from "@/components/shared/Rating";
+import List from "@/components/shared/List";
 
-const Product = () => {
+const Product = ({ product }: { product: IProduct }) => {
+	const router = useRouter();
 	return (
 		<div className=" w-[280px] md:w-[370px] flex flex-col gap-4">
 			{/* Image */}
@@ -19,30 +24,47 @@ const Product = () => {
 
 			{/* Desc */}
 			<div className="text-2x text-[#fff] font-libre font-medium flex items-start gap-4  ">
-				<p className=" flex-grow">Hello world</p>
-				<p className="flex-none">$120</p>
+				<p className=" flex-grow">{product?.name}</p>
+				<p className="flex-none">${product.price}</p>
 			</div>
 
 			<div>
-				<p className=" text-base font-jakarta text-white/80 ">
-					Lorem ipsum dolor sit, amet consectetur
-					adipisicing elit. Facere velit debitis iusto
+				<p className=" text-base font-jakarta text-white/80  ">
+					{product?.short_desc}
 				</p>
+			</div>
+
+			<div className="text-2x text-[#fff] font-libre font-medium flex items-start gap-2  ">
+				<List
+					listParentStyles="flex-row  flex-wrap gap-4"
+					titleStyles=" text-sm"
+					valueStyles=" text-sm"
+					items={[
+						{
+							title: "Category:",
+							value: `${product.category} , `,
+						},
+						{
+							title: "Status:",
+							value: product.status,
+						},
+					]}
+				/>
 			</div>
 
 			<div className="flex items-center justify-between ">
 				<SecondaryButton
-					title="Buy now"
-					onClick={() => {}}
+					title="See details"
+					onClick={() =>
+						router.push(
+							`/products/${product._id}`
+						)
+					}
 				/>
-				<div className="flex items-center gap-1">
-					<p className="text-primary">{ICONS.star}</p>
-					<p className="text-primary">{ICONS.star}</p>
-					<p className="text-primary">{ICONS.star}</p>
-					<p className="text-[#828282]">
-						{ICONS.star}
-					</p>
-				</div>
+				<Rating
+					current_value={Number(product.avg_rating)}
+					className=" justify-start"
+				/>
 			</div>
 		</div>
 	);

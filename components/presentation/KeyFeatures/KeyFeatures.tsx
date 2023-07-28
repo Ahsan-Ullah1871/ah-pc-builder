@@ -17,7 +17,7 @@ const KeyFeatures = () => {
 					clickable: true,
 				}}
 				autoplay={{
-					delay: 2500,
+					delay: 7500,
 					disableOnInteraction: false,
 				}}
 				modules={[Navigation, Autoplay]}

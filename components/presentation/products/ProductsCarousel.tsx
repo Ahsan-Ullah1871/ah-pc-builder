@@ -5,6 +5,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 // Import Swiper styles
 import Product from "@/components/core/Product/Product";
 import { ICONS } from "@/constants/ICONS";
+import { IProduct } from "@/types/CommonType";
 
 // const SwiperButtonNext = () => {
 // 	const swiper = useSwiper();
@@ -29,7 +30,11 @@ import { ICONS } from "@/constants/ICONS";
 // 	);
 // };
 
-export default function ProductsCarousel({}: {}) {
+export default function ProductsCarousel({
+	products,
+}: {
+	products: IProduct[];
+}) {
 	return (
 		<Swiper
 			slidesPerView={"auto"}
@@ -38,35 +43,21 @@ export default function ProductsCarousel({}: {}) {
 				clickable: true,
 			}}
 			autoplay={{
-				delay: 2500,
+				delay: 5500,
 				disableOnInteraction: false,
 			}}
 			modules={[Navigation, Autoplay]}
 		>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
-			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
-				<Product />
-			</SwiperSlide>
+			{products?.map((product) => {
+				return (
+					<SwiperSlide
+						key={product?._id}
+						className="!w-[270px] md:!w-[370px] pb-1.5 "
+					>
+						<Product product={product} />
+					</SwiperSlide>
+				);
+			})}
 
 			{/* <div className="flex items-center justify-end gap-5 my-5">
 				<SwiperButtonPrev />
