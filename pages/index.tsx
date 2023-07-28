@@ -11,6 +11,7 @@ import { VECTORS } from "@/constants/Vectors";
 import Category from "@/components/core/category/Category";
 import { ICONS } from "@/constants/ICONS";
 import Categories from "@/components/presentation/Categories/Categories";
+import ShopGallery from "@/components/presentation/Gallery/ShopGallery";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,6 +44,21 @@ export default function Home() {
 				</div>
 
 				<Categories />
+			</div>
+
+			{/* Gallery */}
+			<div className="mt-20">
+				<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
+					<span className="absolute left-0 hidden sm:block">
+						{VECTORS.start_shape}
+					</span>
+					<Title title="Visit Our Restaurant" />
+					<Description
+						description="Quality country-style menu selection, friendly and efficient service, combined with genuine value has kept Our Best serving families like yours for over 28."
+						className="text-center"
+					/>
+				</div>
+				<ShopGallery />
 			</div>
 		</div>
 	);
