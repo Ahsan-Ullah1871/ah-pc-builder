@@ -28,7 +28,7 @@ const ProductDetails = ({
 					]}
 					descriptions={[
 						{
-							desc: product_details.description,
+							desc: product_details?.description,
 						},
 						{
 							desc: "N/A",
@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const all_products = await all_products_resp.json();
 
 	return {
-		paths: all_products.map((product: IProduct) => ({
+		paths: all_products?.map((product: IProduct) => ({
 			params: {
 				id: product._id,
 			},

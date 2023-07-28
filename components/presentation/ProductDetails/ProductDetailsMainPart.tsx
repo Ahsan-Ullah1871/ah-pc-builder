@@ -25,25 +25,25 @@ const ProductDetailsMainPart = ({
 			<div className="w-full md:w-[90%] flex flex-col gap-5">
 				{/* Prduct Name */}
 				<Title
-					title={product_details.name}
+					title={product_details?.name}
 					className=" text-start text-3xl md:text-5xl"
 				/>
 				{/* Rating */}
 				<Rating
 					current_value={Number(
-						product_details.avg_rating
+						product_details?.avg_rating
 					)}
 					className=" justify-start"
 				/>
 
 				{/* price */}
 				<Title
-					title={`$${product_details.price}`}
+					title={`$${product_details?.price}`}
 					className=" text-start text-base"
 				/>
 
 				<Description
-					description={product_details.short_desc}
+					description={product_details?.short_desc}
 					className=" text-start text-base"
 				/>
 
