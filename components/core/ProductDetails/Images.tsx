@@ -15,7 +15,7 @@ const Images = ({ images }: { images: string[] }) => {
 				clickable: true,
 			}}
 			autoplay={{
-				delay: 2500,
+				delay: 4500,
 				disableOnInteraction: false,
 			}}
 			modules={[Navigation, Autoplay]}
@@ -24,7 +24,7 @@ const Images = ({ images }: { images: string[] }) => {
 				return (
 					<SwiperSlide
 						key={image}
-						className="!w-full !h-[350px] md:!h-[600px] !relative "
+						className="!w-full !h-[350px] md:!h-[500px] !relative "
 					>
 						<Image
 							alt=""

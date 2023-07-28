@@ -18,7 +18,7 @@ import { ICategory, IProduct } from "@/types/CommonType";
 
 const inter = Inter({ subsets: ["latin"] });
 
-type Home = {
+type IHome = {
 	categories: ICategory[];
 	featured_products: IProduct[];
 };
@@ -86,7 +86,7 @@ export default function Home({
 }
 
 //
-export const getStaticProps: GetStaticProps<Home> = async () => {
+export const getStaticProps: GetStaticProps<IHome> = async () => {
 	const base_url = process.env.BASE_URL;
 	// featured products
 	const featured_products_res = await fetch(
