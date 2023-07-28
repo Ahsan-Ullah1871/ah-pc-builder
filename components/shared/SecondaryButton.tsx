@@ -4,7 +4,7 @@ import { type } from "os";
 
 type IButton = {
 	title: string;
-	onClick: (e) => void;
+	onClick: (e: any) => void;
 };
 
 const SecondaryButton = ({ title, onClick }: IButton) => {
