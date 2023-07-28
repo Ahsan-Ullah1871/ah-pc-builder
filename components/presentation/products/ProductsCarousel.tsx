@@ -43,31 +43,28 @@ export default function ProductsCarousel({}: {}) {
 			}}
 			modules={[Navigation, Autoplay]}
 		>
-			<SwiperSlide
-				className="w-[370px] "
-				style={{ width: "370px" }}
-			>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
 				<Product />
 			</SwiperSlide>
-
-			<SwiperSlide
-				className="w-[370px] "
-				style={{ width: "370px" }}
-			>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
 				<Product />
 			</SwiperSlide>
-
-			<SwiperSlide
-				className="w-[370px] "
-				style={{ width: "370px" }}
-			>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
 				<Product />
 			</SwiperSlide>
-
-			<SwiperSlide
-				className="w-[370px] "
-				style={{ width: "370px" }}
-			>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
+				<Product />
+			</SwiperSlide>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
+				<Product />
+			</SwiperSlide>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
+				<Product />
+			</SwiperSlide>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
+				<Product />
+			</SwiperSlide>
+			<SwiperSlide className="!w-[270px] md:!w-[370px] pb-1.5 ">
 				<Product />
 			</SwiperSlide>
 

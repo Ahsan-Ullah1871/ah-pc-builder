@@ -6,9 +6,9 @@ import SecondaryButton from "@/components/shared/SecondaryButton";
 
 const Product = () => {
 	return (
-		<div className="w-[370px] flex flex-col gap-4">
+		<div className=" w-[280px] sm:w-[370px] flex flex-col gap-4">
 			{/* Image */}
-			<div className=" relative w-[370px] h-[300px] ">
+			<div className=" relative w-full h-[300px] ">
 				<Image
 					alt=""
 					className=" object-cover"
@@ -49,5 +49,4 @@ const Product = () => {
 };
 
 export default Product;
-
 
