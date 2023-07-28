@@ -12,29 +12,34 @@ import Category from "@/components/core/category/Category";
 import { ICONS } from "@/constants/ICONS";
 import Categories from "@/components/presentation/Categories/Categories";
 import ShopGallery from "@/components/presentation/Gallery/ShopGallery";
+import KeyFeatures from "@/components/presentation/KeyFeatures/KeyFeatures";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 	return (
-		<div className=" max-w-project mx-auto ">
-			<HeroBanner />
-
-			{/* Featured listings */}
-			<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
-				<span className="absolute left-0 hidden sm:block">
-					{VECTORS.star}
-				</span>
-				<Title title="Most popular food" />
-				<Description
-					description="A list of most popular Bangladeshi food including mains, drinks, and deserts you must try while in Bangladesh, for an authentic experience. Check now!"
-					className="text-center"
-				/>
+		<div className=" flex flex-col gap-20 ">
+			<div className="max-w-project mx-auto px-4">
+				<HeroBanner />
 			</div>
-			<ProductsCarousel />
 
 			{/* Featured listings */}
-			<div className="mt-20">
+			<div className="max-w-project w-full   mx-auto px-4">
+				<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
+					<span className="absolute left-0 hidden sm:block">
+						{VECTORS.star}
+					</span>
+					<Title title="Most popular food" />
+					<Description
+						description="A list of most popular Bangladeshi food including mains, drinks, and deserts you must try while in Bangladesh, for an authentic experience. Check now!"
+						className="text-center"
+					/>
+				</div>
+				<ProductsCarousel />
+			</div>
+
+			{/* Featured listings */}
+			<div className="max-w-project mx-auto px-4">
 				<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
 					<Title title="Most popular food" />
 					<Description
@@ -46,9 +51,14 @@ export default function Home() {
 				<Categories />
 			</div>
 
+			{/*  */}
+			<div className="">
+				<KeyFeatures />
+			</div>
+
 			{/* Gallery */}
-			<div className="mt-20">
-				<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
+			<div className="max-w-project w-full mx-auto px-4">
+				<div className="max-w-xl  mx-auto flex flex-col gap-4 mb-10">
 					<span className="absolute left-0 hidden sm:block">
 						{VECTORS.start_shape}
 					</span>
