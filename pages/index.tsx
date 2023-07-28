@@ -8,6 +8,9 @@ import ProductsCarousel from "@/components/presentation/products/ProductsCarouse
 import Title from "@/components/shared/Title";
 import Description from "@/components/shared/Description";
 import { VECTORS } from "@/constants/Vectors";
+import Category from "@/components/core/category/Category";
+import { ICONS } from "@/constants/ICONS";
+import Categories from "@/components/presentation/Categories/Categories";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +19,7 @@ export default function Home() {
 		<div className=" max-w-project mx-auto ">
 			<HeroBanner />
 
+			{/* Featured listings */}
 			<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
 				<span className="absolute left-0 hidden sm:block">
 					{VECTORS.star}
@@ -26,8 +30,18 @@ export default function Home() {
 					className="text-center"
 				/>
 			</div>
-
 			<ProductsCarousel />
+
+			{/* Featured listings */}
+			<div className="max-w-xl mx-auto flex flex-col gap-4 mb-10">
+				<Title title="Most popular food" />
+				<Description
+					description="A list of most popular Bangladeshi food including mains, drinks, and deserts you must try while in Bangladesh, for an authentic experience. Check now!"
+					className="text-center"
+				/>
+			</div>
+
+			<Categories />
 		</div>
 	);
 }
