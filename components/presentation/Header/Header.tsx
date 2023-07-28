@@ -8,7 +8,7 @@ import MobileMenus from "./MobileMenus";
 
 const Header = () => {
 	return (
-		<div className=" bg-[#111114] z-50 sticky inset-0 top-0   max-w-project  h-[100px]  mx-auto flex items-center justify-between py-2">
+		<div className=" px-4 md:px-0 bg-[#111114] z-50 sticky inset-0 top-0   max-w-project  h-[100px]  mx-auto flex items-center justify-between py-2">
 			{/* Desktop Menus */}
 			<div className=" hidden md:flex items-center justify-start gap-8">
 				<Link

@@ -23,10 +23,12 @@ export const plus_jakarta_sans = Plus_Jakarta_Sans({
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<main
-			className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen `}
+			className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen  flex-flex-col`}
 		>
 			<Header />
-			<Component {...pageProps} />
+			<div className="min-h-[50VH]">
+				<Component {...pageProps} />
+			</div>
 			<Footer />
 		</main>
 	);
