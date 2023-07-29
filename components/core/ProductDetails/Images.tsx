@@ -30,7 +30,7 @@ const Images = ({ images }: { images: string[] }) => {
 							alt=""
 							src={image}
 							fill
-							className="  object-cover "
+							className="  object-contain bg-white "
 						/>
 					</SwiperSlide>
 				);

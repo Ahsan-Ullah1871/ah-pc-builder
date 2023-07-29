@@ -16,8 +16,8 @@ const Product = ({ product }: { product: IProduct }) => {
 			<div className=" relative w-full h-[300px] ">
 				<Image
 					alt=""
-					className=" object-cover"
-					src={"/Images/product.png"}
+					className=" object-contain bg-white"
+					src={`${product.image}.png`}
 					fill
 				/>
 			</div>
