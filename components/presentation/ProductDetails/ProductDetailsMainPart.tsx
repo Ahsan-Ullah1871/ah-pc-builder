@@ -15,7 +15,13 @@ const ProductDetailsMainPart = ({
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 			<div className="w-full ">
-				<Images images={[`${product_details.image}.png`]} />
+				<Images
+					images={[
+						product_details?.image
+							? `${product_details?.image}.png`
+							: "/p/audio_2.png",
+					]}
+				/>
 			</div>
 			<div className="w-full md:w-[90%] flex flex-col gap-5">
 				{/* Prduct Name */}

@@ -17,7 +17,11 @@ const Product2 = ({ product }: { product: IProduct }) => {
 				<Image
 					alt=""
 					className=" object-contain bg-white"
-					src={`${product.image}.png`}
+					src={
+						product?.image
+							? `${product?.image}.png`
+							: `/Images/image-1.png`
+					}
 					fill
 				/>
 			</div>
