@@ -1,22 +1,14 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import HeroBanner from "@/components/presentation/HeroBanners/HeroBanner";
-import DivTest from "@/components/presentation/animations/DivTest";
-import Header from "@/components/presentation/Header/Header";
-import Product from "@/components/core/Product/Product";
 import ProductsCarousel from "@/components/presentation/products/ProductsCarousel";
 import Title from "@/components/shared/Title";
 import Description from "@/components/shared/Description";
 import { VECTORS } from "@/constants/Vectors";
-import Category from "@/components/core/category/Category";
-import { ICONS } from "@/constants/ICONS";
 import Categories from "@/components/presentation/Categories/Categories";
 import ShopGallery from "@/components/presentation/Gallery/ShopGallery";
 import KeyFeatures from "@/components/presentation/KeyFeatures/KeyFeatures";
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { ICategory, IProduct } from "@/types/CommonType";
-
-const inter = Inter({ subsets: ["latin"] });
 
 type IHome = {
 	categories: ICategory[];
