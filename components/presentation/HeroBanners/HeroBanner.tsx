@@ -52,7 +52,11 @@ const HeroBanner = ({ product }: { product: IProduct }) => {
 						alt="test"
 					/>
 					<Image
-						src={"/Images/image80.png"}
+						src={
+							product?.image
+								? `${product?.image}.png`
+								: `/Images/image-1.png`
+						}
 						width={80}
 						height={80}
 						alt="test"

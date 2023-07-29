@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import ProgressBar from "@badrap/bar-of-progress";
 import { Router } from "next/router";
+import { AppContextData, AppContextValue, StoreContext } from "@/utils/Context";
+import { useState } from "react";
 
 export const inter = Inter({
 	subsets: ["latin"],
@@ -40,16 +42,36 @@ Router.events.on("routeChangeComplete", () => progress.finish());
 Router.events.on("routeChangeError", () => progress.finish());
 
 export default function App({ Component, pageProps }: AppProps) {
+	// Define the state and functions you want to share through the context
+	const [builder_items, setBuilderItems] = useState({});
+
+	const setContextState = (data: Partial<AppContextData>) => {
+		setBuilderItems(data.builder_items || builder_items);
+	};
+
+	const contextValue: AppContextValue = {
+		builder_items,
+		setContextState,
+	};
+
+	console.log(
+		"======================builder items fomr _app=============="
+	);
+	console.log(builder_items);
+	console.log("====================================");
+
 	return (
-		<main
-			className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen  flex-flex-col`}
-		>
-			<Header />
-			<div className="min-h-[50VH]">
-				<Component {...pageProps} />
-			</div>
-			<Footer />
-		</main>
+		<StoreContext.Provider value={contextValue}>
+			<main
+				className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen  flex-flex-col`}
+			>
+				<Header />
+				<div className="min-h-[50VH]">
+					<Component {...pageProps} />
+				</div>
+				<Footer />
+			</main>
+		</StoreContext.Provider>
 	);
 }
 
