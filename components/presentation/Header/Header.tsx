@@ -5,8 +5,11 @@ import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";
 import { ICONS } from "@/constants/ICONS";
 import usePathMatch from "@/utils/pathCheck";
 import MobileMenus from "./MobileMenus";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
+	const { data: user_session } = useSession();
+
 	return (
 		<div className=" px-4 md:px-0 bg-[#111114] z-50 sticky inset-0 top-0 ">
 			<div className="    max-w-project  h-[80px]  mx-auto flex items-center justify-between py-2">
@@ -85,17 +88,27 @@ const Header = () => {
 
 				<div className="flex items-center justify-end gap-7">
 					{/* sign in  */}
-					<Link
-						href={"/signin"}
-						className={[
-							"text-base font-normal font-jakarta ",
-							usePathMatch("/contact")
-								? "text-[#FB8F2C]"
-								: "text-white",
-						].join(" ")}
-					>
-						Sign in
-					</Link>
+					{!user_session?.user?.email && (
+						<Link
+							href={"/signin"}
+							className={[
+								"text-base font-normal font-jakarta  text-white",
+							].join(" ")}
+						>
+							Sign in
+						</Link>
+					)}
+					{/* Log oyu  */}
+					{user_session?.user?.email && (
+						<button
+							onClick={() => signOut()}
+							className={[
+								"text-base font-normal font-jakarta text-white ",
+							].join(" ")}
+						>
+							Logout
+						</button>
+					)}
 					{/* sign in  */}
 					<Link
 						href={"/pc-builder"}
@@ -115,4 +128,5 @@ const Header = () => {
 };
 
 export default Header;
+
 

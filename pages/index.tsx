@@ -20,10 +20,18 @@ export default function Home({
 	categories,
 	featured_products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+	console.log("====================================");
+	console.log(
+		categories?.map((category) => ({
+			image: category.image,
+			name: category.name,
+		}))
+	);
+	console.log("====================================");
 	return (
 		<div className=" flex flex-col  gap-20 md:gap-28  py-10  ">
 			<div className="max-w-project mx-auto px-4">
-				<HeroBanner product={featured_products[0]} />
+				<HeroBanner product={featured_products[6]} />
 			</div>
 
 			{/* Featured listings */}

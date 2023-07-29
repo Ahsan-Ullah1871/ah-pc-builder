@@ -177,5 +177,51 @@ export const ICONS = {
 			/>
 		</svg>
 	),
+	google: (
+		<svg
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<rect
+				width="24"
+				height="24"
+				fill="url(#pattern0)"
+			/>
+			<defs>
+				<pattern
+					id="pattern0"
+					patternContentUnits="objectBoundingBox"
+					width="1"
+					height="1"
+				>
+					<use transform="scale(0.000833333)" />
+				</pattern>
+				<image
+					id="image0_80_819"
+					width="1200"
+					height="1200"
+				/>
+			</defs>
+		</svg>
+	),
+	back: (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			className="w-6 h-6"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+			/>
+		</svg>
+	),
 };
 

@@ -32,7 +32,11 @@ const HeroBanner = ({ product }: { product: IProduct }) => {
 				<div className="relative">
 					{/* Main image */}
 					<Image
-						src={"/Images/image80.png"}
+						src={
+							product?.image
+								? `${product?.image}.png`
+								: `/Images/image-1.png`
+						}
 						width={370}
 						height={436}
 						alt="test"
@@ -43,7 +47,7 @@ const HeroBanner = ({ product }: { product: IProduct }) => {
 					</p>
 				</div>
 				{/* Thumb images */}
-				<div className="flex flex-row sm:flex-col gap-2 sm:gap-8 w-[100px] h-full ">
+				{/* <div className="flex flex-row sm:flex-col gap-2 sm:gap-8 w-[100px] h-full ">
 					<Image
 						src={"/Images/image80.png"}
 						width={80}
@@ -61,7 +65,7 @@ const HeroBanner = ({ product }: { product: IProduct }) => {
 						height={80}
 						alt="test"
 					/>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

@@ -9,6 +9,7 @@ import ProgressBar from "@badrap/bar-of-progress";
 import { Router } from "next/router";
 import { AppContextData, AppContextValue, StoreContext } from "@/utils/Context";
 import { useState } from "react";
+import { SessionProvider } from "next-auth/react";
 
 export const inter = Inter({
 	subsets: ["latin"],
@@ -41,7 +42,10 @@ Router.events.on("routeChangeStart", () => progress.start());
 Router.events.on("routeChangeComplete", () => progress.finish());
 Router.events.on("routeChangeError", () => progress.finish());
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+	Component,
+	pageProps: { session, ...pageProps },
+}: AppProps) {
 	// Define the state and functions you want to share through the context
 	const [builder_items, setBuilderItems] = useState({});
 
@@ -54,24 +58,20 @@ export default function App({ Component, pageProps }: AppProps) {
 		setContextState,
 	};
 
-	console.log(
-		"======================builder items fomr _app=============="
-	);
-	console.log(builder_items);
-	console.log("====================================");
-
 	return (
-		<StoreContext.Provider value={contextValue}>
-			<main
-				className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen  flex-flex-col`}
-			>
-				<Header />
-				<div className="min-h-[50VH]">
-					<Component {...pageProps} />
-				</div>
-				<Footer />
-			</main>
-		</StoreContext.Provider>
+		<SessionProvider session={session}>
+			<StoreContext.Provider value={contextValue}>
+				<main
+					className={`${inter.variable} ${plus_jakarta_sans.variable} ${libre_bodoni.variable} bg-[#111114] min-h-screen  flex-flex-col`}
+				>
+					<Header />
+					<div className="min-h-[50VH]">
+						<Component {...pageProps} />
+					</div>
+					<Footer />
+				</main>
+			</StoreContext.Provider>
+		</SessionProvider>
 	);
 }
 
