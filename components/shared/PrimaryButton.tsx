@@ -8,6 +8,7 @@ type IButton = {
 	button_styles?: string;
 	onClick?: (e: any) => void;
 	disabled?: boolean;
+	type?: "button" | "submit" | "reset";
 };
 
 const PrimaryButton = ({
@@ -15,9 +16,11 @@ const PrimaryButton = ({
 	onClick,
 	button_styles,
 	disabled = false,
+	type = "button",
 }: IButton) => {
 	return (
 		<motion.button
+			type={type}
 			disabled={disabled}
 			className={cn(
 				`group relative font-jakarta text-base     border-2 px-4 py-2 ${
