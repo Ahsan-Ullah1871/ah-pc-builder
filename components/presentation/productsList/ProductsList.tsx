@@ -25,7 +25,7 @@ const ProductsList = ({
 				let GroupUI = (
 					<div key={group.category.key}>
 						{/* Category Title */}
-						<div className=" sticky top-0 bg-[#111114] w-auto h-20 z-50 shadow-md flex flex-col items-center justify-center gap-1 mb-14">
+						<div className=" sticky top-[79px] z-10 bg-[#111114] w-auto h-20  shadow-md flex flex-col items-center justify-center gap-1 mb-14">
 							<Title
 								title={
 									group.category

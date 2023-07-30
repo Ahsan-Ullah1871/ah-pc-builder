@@ -9,6 +9,7 @@ import ShopGallery from "@/components/presentation/Gallery/ShopGallery";
 import KeyFeatures from "@/components/presentation/KeyFeatures/KeyFeatures";
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { ICategory, IProduct } from "@/types/CommonType";
+import { FeaturedCategoriesData } from "@/data/CategoriesList";
 
 type IHome = {
 	categories: ICategory[];
@@ -20,14 +21,6 @@ export default function Home({
 	categories,
 	featured_products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-	console.log("====================================");
-	console.log(
-		categories?.map((category) => ({
-			image: category.image,
-			name: category.name,
-		}))
-	);
-	console.log("====================================");
 	return (
 		<div className=" flex flex-col  gap-20 md:gap-28  py-10  ">
 			<div className="max-w-project mx-auto px-4">
@@ -64,7 +57,7 @@ export default function Home({
 					/>
 				</div>
 
-				<Categories categories={categories} />
+				<Categories categories={FeaturedCategoriesData} />
 			</div>
 
 			{/* Gallery */}

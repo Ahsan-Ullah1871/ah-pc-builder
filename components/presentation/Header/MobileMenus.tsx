@@ -5,6 +5,7 @@ import Link from "next/link";
 import usePathMatch from "@/utils/pathCheck";
 import Image from "next/image";
 import Accordion from "@/components/shared/Accordion";
+import { FeaturedCategoriesData } from "@/data/CategoriesList";
 
 // SideMenuVariants
 const ButtonVariants: Variants = {
@@ -134,6 +135,7 @@ const MobileMenus = () => {
 			>
 				<Link
 					href={"/"}
+					onClick={() => setIsOpen(!isOpen)}
 					className={[
 						"px-4 py-3 shadow-sm  text-base font-normal font-jakarta ",
 						usePathMatch("/")
@@ -143,17 +145,7 @@ const MobileMenus = () => {
 				>
 					Home
 				</Link>
-				<Link
-					href={"/c"}
-					className={[
-						"px-4 py-3 shadow-sm  text-base font-normal font-jakarta ",
-						usePathMatch("/c")
-							? "text-[#FB8F2C]"
-							: "text-[#111114]",
-					].join(" ")}
-				>
-					Categories
-				</Link>
+
 				<Accordion
 					button_title="Categories"
 					main_button_style={[
@@ -162,18 +154,10 @@ const MobileMenus = () => {
 							? "text-[#FB8F2C]"
 							: "text-[#111114]",
 					].join(" ")}
-					items={[
-						{
-							title: "Test",
-							path: "/",
-							icon: ICONS.headphone,
-						},
-						{
-							title: "CPU",
-							path: "/",
-							icon: ICONS.cpu,
-						},
-					]}
+					items={FeaturedCategoriesData}
+					button_click={() => {
+						setIsOpen(!isOpen);
+					}}
 				/>
 
 				<Link

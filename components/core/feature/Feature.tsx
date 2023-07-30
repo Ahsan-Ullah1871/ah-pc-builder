@@ -4,11 +4,11 @@ import React from "react";
 
 type ICategory = {
 	title: string;
-	image_url: string;
+	icon: React.ReactNode;
 	text_styles?: string;
 	card_styles?: string;
 };
-const Feature = ({ title, image_url, text_styles, card_styles }: ICategory) => {
+const Feature = ({ title, icon, text_styles, card_styles }: ICategory) => {
 	return (
 		<div
 			className={cn(
@@ -16,14 +16,7 @@ const Feature = ({ title, image_url, text_styles, card_styles }: ICategory) => {
 				card_styles
 			)}
 		>
-			<div className=" w-14 h-14   relative">
-				<Image
-					alt=""
-					src={image_url}
-					fill
-					className="object-cover   overflow-hidden"
-				/>
-			</div>
+			{/* <div className="  text-primary  relative">{icon}</div> */}
 			<p
 				className={cn(
 					" text-xl md:text-2xl font-medium font-libre text-[#111114]",

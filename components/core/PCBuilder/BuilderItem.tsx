@@ -32,7 +32,15 @@ const BuilderItem = ({ category }: { category: ICategory }) => {
 		>
 			{/* Category */}
 			<div className="col-span-3  flex flex-col gap-2 items-center justify-center">
-				<span className="text-primary">{ICONS.cpu}</span>
+				<span className="text-primary">
+					<Image
+						alt="icon"
+						height={40}
+						width={40}
+						className="text-primary fill-primary"
+						src={`${category?.image}.svg`}
+					/>
+				</span>
 				<span className="text-sm font-jakarta text-white ">
 					{category?.name}
 				</span>

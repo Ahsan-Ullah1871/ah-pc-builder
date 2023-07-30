@@ -6,6 +6,7 @@ import { ICONS } from "@/constants/ICONS";
 import usePathMatch from "@/utils/pathCheck";
 import MobileMenus from "./MobileMenus";
 import { signOut, useSession } from "next-auth/react";
+import { FeaturedCategoriesData } from "@/data/CategoriesList";
 
 const Header = () => {
 	const { data: user_session } = useSession();
@@ -32,18 +33,7 @@ const Header = () => {
 						main_btn_styles="text-base font-normal font-jakarta text-] flex items-center gap-1  text-white
 					focus:text-[
 					#FB8F2C]"
-						items={[
-							{
-								title: "Test",
-								path: "/",
-								icon: ICONS.headphone,
-							},
-							{
-								title: "CPU",
-								path: "/",
-								icon: ICONS.cpu,
-							},
-						]}
+						items={FeaturedCategoriesData}
 					/>
 
 					<Link
@@ -128,5 +118,4 @@ const Header = () => {
 };
 
 export default Header;
-
 

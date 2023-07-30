@@ -19,23 +19,22 @@ const Category = ({
 }: ICategory) => {
 	return (
 		<Link
-			href={`/products/?category=${category_key}`}
+			href={`/c/${category_key}`}
 			className={cn(
-				"  w-[75px] md:w-[130px] h-[75px]  md:h-[130px] rounded-full flex flex-col gap-1 items-center justify-center ",
+				"  w-[100px] md:w-[130px] h-[100px]  md:h-[130px] rounded-full flex flex-col gap-1 items-center justify-center ",
 				card_styles
 			)}
 		>
-			<div className=" w-14 md:w-20 h-auto relative">
-				<Image
-					alt=""
-					src={image_url}
-					fill
-					className="object-cover   overflow-hidden"
-				/>
-			</div>
+			<Image
+				alt=""
+				src={image_url}
+				width={40}
+				height={40}
+				className="object-cover hidden md:block  overflow-hidden"
+			/>
 			<p
 				className={cn(
-					"text-base font-medium font-libre text-center flex-none",
+					"text-base  px-2 font-medium font-libre text-center flex-none",
 					text_styles
 				)}
 			>
