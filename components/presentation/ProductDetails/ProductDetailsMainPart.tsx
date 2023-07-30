@@ -3,7 +3,7 @@ import Description from "@/components/shared/Description";
 import List from "@/components/shared/List";
 import Rating from "@/components/shared/Rating";
 import Title from "@/components/shared/Title";
-import { IProduct } from "@/types/CommonType";
+import { IProduct, IReview } from "@/types/CommonType";
 import Image from "next/image";
 import React from "react";
 
@@ -62,7 +62,7 @@ const ProductDetailsMainPart = ({
 				/>
 
 				{/* list */}
-				<List items={list_items} />
+				{product_details && <List items={list_items} />}
 			</div>
 		</div>
 	);

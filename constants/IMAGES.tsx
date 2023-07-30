@@ -7,5 +7,7 @@ export const IMAGES = {
 	shop3: "https://media.tradly.app/images/devsblog123/65450/artiom-vallat-H-qqp_Eqaww-unsplash-kNi8vz0q.jpg",
 	shop4: "https://media.tradly.app/images/devsblog123/83623/onur-binay-4Ykxp_t4i08-unsplash-mW7frcel.jpg",
 	shop5: "https://media.tradly.app/images/devsblog123/84967/onur-binay-P3PpD5k7jfI-unsplash-oOiIFYN5.jpg",
+	logout: "https://media.tradly.app/images/devsblog123/26212/logout-2-svgrepo-com-QE2U9Yjz.svg",
+	email: "https://media.tradly.app/images/devsblog123/60891/email-svgrepo-com-YsLHaVNT.svg",
 };
 

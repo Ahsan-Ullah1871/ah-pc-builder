@@ -160,8 +160,18 @@ const MobileMenus = () => {
 						setIsOpen(!isOpen);
 					}}
 				/>
-
 				<Link
+					href={"/products"}
+					className={[
+						"px-4 py-3 shadow-sm  text-base font-normal font-jakarta ",
+						usePathMatch("/products")
+							? "text-[#FB8F2C]"
+							: "text-[#111114]",
+					].join(" ")}
+				>
+					All products
+				</Link>
+				{/* <Link
 					href={"/blogs"}
 					className={[
 						"px-4 py-3 shadow-sm  text-base font-normal font-jakarta ",
@@ -182,7 +192,7 @@ const MobileMenus = () => {
 					].join(" ")}
 				>
 					Contact
-				</Link>
+				</Link> */}
 			</motion.div>
 		</motion.div>
 	);

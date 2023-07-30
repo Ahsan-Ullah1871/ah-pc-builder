@@ -22,3 +22,16 @@ export type ICategory = {
 	image: string;
 };
 
+// I Review
+
+export type IReview = {
+	_id: string;
+	product_id: string;
+	review: string;
+	rating: number;
+	reviewed_by: {
+		email: string;
+		name: string;
+		profile_image?: string;
+	};
+};

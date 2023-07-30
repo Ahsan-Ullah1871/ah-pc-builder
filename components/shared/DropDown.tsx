@@ -3,21 +3,29 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { cn } from "@/utils/classNames";
 
 type IItems = {
 	image: string; //svg image
 	name: string;
 	key?: string;
 	url?: string;
+	func?: () => void;
 };
 
 type IDropDOwn = {
 	title: string;
+	menu_items_styles?: string;
 	main_btn_styles: string;
 	items: IItems[];
 };
 
-export default function DropDown({ title, main_btn_styles, items }: IDropDOwn) {
+export default function DropDown({
+	title,
+	main_btn_styles,
+	items,
+	menu_items_styles,
+}: IDropDOwn) {
 	const router = useRouter();
 	return (
 		<Menu
@@ -42,7 +50,12 @@ export default function DropDown({ title, main_btn_styles, items }: IDropDOwn) {
 				leaveFrom="transform opacity-100 scale-100"
 				leaveTo="transform opacity-0 scale-95"
 			>
-				<Menu.Items className="absolute z-60 left-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+				<Menu.Items
+					className={cn(
+						"absolute z-60 left-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
+						menu_items_styles
+					)}
+				>
 					<div className="px-1 py-1 ">
 						{items.map((item) => {
 							return (
@@ -53,12 +66,14 @@ export default function DropDown({ title, main_btn_styles, items }: IDropDOwn) {
 										active,
 									}) => (
 										<button
-											onClick={() =>
+											onClick={() => {
 												item?.url &&
-												router.push(
-													`${item.url}`
-												)
-											}
+													router.push(
+														`${item.url}`
+													);
+												item?.func &&
+													item?.func();
+											}}
 											className={`${
 												active
 													? "bg-[#FB8F2C] bg-opacity-20 text-[#FB8F2C]"
@@ -76,10 +91,13 @@ export default function DropDown({ title, main_btn_styles, items }: IDropDOwn) {
 												alt={
 													item?.name
 												}
+												className="flex-none"
 											/>
-											{
-												item?.name
-											}
+											<span className="flex-grow  text-start truncate">
+												{
+													item?.name
+												}
+											</span>
 										</button>
 									)}
 								</Menu.Item>

@@ -9,7 +9,7 @@ const nextConfig = {
 		NEXTAUTH_SECRET: process.env.NEX_AUTH_SECRET,
 	},
 	images: {
-		domains: ["media.tradly.app"],
+		domains: ["media.tradly.app", "avatars.githubusercontent.com"],
 	},
 };
 
