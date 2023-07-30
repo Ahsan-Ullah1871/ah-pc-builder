@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useAppContext } from "@/utils/Context";
 import React from "react";
 

@@ -27,18 +27,13 @@ const PCBuilderTable = ({ categories }: { categories: ICategory[] }) => {
 		Object.keys(builder_items).includes(ct.key)
 	);
 
-	const printRef = useRef();
-
 	return (
 		<div
 			className="max-w-4xl mx-auto bg-[rgba(255,255,255,0.10)] border 
         border-[rgba(255,255,255,0.80)]   border-opacity-5 min-h-[200px] "
 			id="builder_div"
 		>
-			<ul
-				className="hidden sm:block"
-				ref={printRef}
-			>
+			<ul className="hidden sm:block">
 				{/* Header */}
 				<li className=" sticky top-[82px]  z-30   bg-primary_dark grid grid-cols-12 py-6  border-b border-b-white/80 border-opacity-20">
 					<p className=" text-center col-span-3 text-white font-jakarta text-lg font-semibold">

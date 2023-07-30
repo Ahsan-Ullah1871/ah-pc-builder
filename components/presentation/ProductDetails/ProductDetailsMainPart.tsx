@@ -12,6 +12,21 @@ const ProductDetailsMainPart = ({
 }: {
 	product_details: IProduct;
 }) => {
+	let list_items = [
+		{
+			title: `Category :`,
+			value: product_details?.category,
+		},
+		{
+			title: `Status :`,
+			value: product_details?.status,
+		},
+		...product_details?.key_features?.map((feature) => ({
+			title: `${feature.split(":")[0]} : `,
+			value: feature.split(":")[1],
+		})),
+	];
+
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 			<div className="w-full ">
@@ -47,16 +62,7 @@ const ProductDetailsMainPart = ({
 				/>
 
 				{/* list */}
-				<List
-					items={product_details?.key_features?.map(
-						(feature) => ({
-							title: `${
-								feature.split(":")[0]
-							} : `,
-							value: feature.split(":")[1],
-						})
-					)}
-				/>
+				<List items={list_items} />
 			</div>
 		</div>
 	);
