@@ -10,6 +10,7 @@ import List from "@/components/shared/List";
 import PrimaryButton from "@/components/shared/PrimaryButton";
 import { StoreContext, useAppContext } from "@/utils/Context";
 import ToastContainer from "@/components/shared/Toast";
+import { getThumbnailImage } from "@/constants/Functions";
 
 const Product3 = ({
 	product,
@@ -53,7 +54,9 @@ const Product3 = ({
 					<Image
 						alt=""
 						className=" object-contain bg-white"
-						src={`${product?.image}`}
+						src={getThumbnailImage(
+							product?.image
+						)}
 						fill
 					/>
 				)}

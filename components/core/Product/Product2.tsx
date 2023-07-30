@@ -7,6 +7,7 @@ import { IProduct } from "@/types/CommonType";
 import { useRouter } from "next/router";
 import Rating from "@/components/shared/Rating";
 import List from "@/components/shared/List";
+import { getThumbnailImage } from "@/constants/Functions";
 
 const Product2 = ({ product }: { product: IProduct }) => {
 	const router = useRouter();
@@ -18,7 +19,9 @@ const Product2 = ({ product }: { product: IProduct }) => {
 					<Image
 						alt=""
 						className=" object-contain bg-white"
-						src={`${product?.image}`}
+						src={getThumbnailImage(
+							product?.image
+						)}
 						fill
 					/>
 				)}
