@@ -59,7 +59,7 @@ export default function Accordion({
 										className={` group flex  w-full items-center gap-4 rounded-md   text-sm font-jakarta text-[##111114] group-hover:text-[#FB8F2C px-5 py-2 shadow]`}
 									>
 										<Image
-											src={`${item?.image}.svg`}
+											src={`${item?.image}`}
 											width={
 												20
 											}

@@ -13,7 +13,7 @@ const AllCategories = ({ categories }: { categories: ICategory[] }) => {
 						card_styles="bg-primary bg-opacity-50"
 						title={category?.name}
 						text_styles="text-white"
-						image_url={`${category?.image}.svg`}
+						image_url={`${category?.image}`}
 					/>
 				);
 			})}

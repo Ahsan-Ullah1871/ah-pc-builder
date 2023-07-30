@@ -8,6 +8,9 @@ const nextConfig = {
 		GITHUB_SECRET: process.env.GITHUB_SECRET,
 		NEXTAUTH_SECRET: process.env.NEX_AUTH_SECRET,
 	},
+	images: {
+		domains: ["media.tradly.app"],
+	},
 };
 
 module.exports = nextConfig;

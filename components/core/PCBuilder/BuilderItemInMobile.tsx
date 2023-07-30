@@ -32,9 +32,15 @@ const BuilderItemInMobile = ({ category }: { category: ICategory }) => {
 		>
 			{/* Category */}
 			<div className=" w-full   flex   gap-2 items-center justify-start ">
-				<span className="text-primary text-lg">
-					{ICONS.cpu}
-				</span>
+				{category?.image && (
+					<Image
+						alt="icon"
+						height={40}
+						width={40}
+						className="text-primary fill-primary"
+						src={`${category?.image}`}
+					/>
+				)}
 				<span className="text-sm font-jakarta text-white ">
 					{category?.name}
 				</span>
@@ -46,7 +52,7 @@ const BuilderItemInMobile = ({ category }: { category: ICategory }) => {
 						<div className="w-20 h-20 relative flex-none  rounded-md overflow-hidden">
 							<Image
 								alt={product?.name}
-								src={`${product?.image}.png`}
+								src={`${product?.image}`}
 								fill
 								className="bg-white object-contain "
 							/>

@@ -66,7 +66,7 @@ export default function DropDown({ title, main_btn_styles, items }: IDropDOwn) {
 											} group flex  w-full items-center gap-4 rounded-md px-2 py-2 text-sm font-jakarta`}
 										>
 											<Image
-												src={`${item?.image}.svg`}
+												src={`${item?.image}`}
 												width={
 													20
 												}

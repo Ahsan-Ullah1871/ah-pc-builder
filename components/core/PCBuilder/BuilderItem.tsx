@@ -33,13 +33,15 @@ const BuilderItem = ({ category }: { category: ICategory }) => {
 			{/* Category */}
 			<div className="col-span-3  flex flex-col gap-2 items-center justify-center">
 				<span className="text-primary">
-					<Image
-						alt="icon"
-						height={40}
-						width={40}
-						className="text-primary fill-primary"
-						src={`${category?.image}.svg`}
-					/>
+					{category?.image && (
+						<Image
+							alt="icon"
+							height={40}
+							width={40}
+							className="text-primary fill-primary"
+							src={`${category?.image}`}
+						/>
+					)}
 				</span>
 				<span className="text-sm font-jakarta text-white ">
 					{category?.name}
@@ -52,7 +54,7 @@ const BuilderItem = ({ category }: { category: ICategory }) => {
 						<div className="w-20 h-20 relative flex-none  rounded-md overflow-hidden">
 							<Image
 								alt={product?.name}
-								src={`${product?.image}.png`}
+								src={`${product?.image}`}
 								fill
 								className="bg-white object-contain "
 							/>

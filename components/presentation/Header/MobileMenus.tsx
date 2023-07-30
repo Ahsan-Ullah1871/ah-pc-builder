@@ -6,6 +6,7 @@ import usePathMatch from "@/utils/pathCheck";
 import Image from "next/image";
 import Accordion from "@/components/shared/Accordion";
 import { FeaturedCategoriesData } from "@/data/CategoriesList";
+import { IMAGES } from "@/constants/IMAGES";
 
 // SideMenuVariants
 const ButtonVariants: Variants = {
@@ -96,7 +97,7 @@ const MobileMenus = () => {
 				{isOpen && (
 					<Link href={"/"}>
 						<Image
-							src={"/Images/logo.svg"}
+							src={IMAGES.logo}
 							alt="logo"
 							className=""
 							width={150}

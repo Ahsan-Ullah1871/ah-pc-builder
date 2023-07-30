@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { IMAGES } from "@/constants/IMAGES";
 import Image from "next/image";
 import React from "react";
 
@@ -9,21 +10,21 @@ const ShopGallery = () => {
 				<Image
 					alt=""
 					fill
-					src={"/Images/image.png"}
+					src={IMAGES.shop1}
 				/>
 			</div>
 			<div className=" row-span-2 w-full h-full     relative">
 				<Image
 					alt=""
 					fill
-					src={"/Images/image-1.png"}
+					src={IMAGES.shop2}
 				/>
 			</div>
 			<div className=" w-full h-full     relative">
 				<Image
 					alt=""
 					fill
-					src={"/Images/image.png"}
+					src={IMAGES.shop3}
 				/>
 			</div>
 
@@ -31,14 +32,14 @@ const ShopGallery = () => {
 				<Image
 					alt=""
 					fill
-					src={"/Images/image.png"}
+					src={IMAGES.shop4}
 				/>
 			</div>
 			<div className=" w-full h-full     relative">
 				<Image
 					alt=""
 					fill
-					src={"/Images/image.png"}
+					src={IMAGES.shop5}
 				/>
 			</div>
 		</div>

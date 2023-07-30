@@ -7,6 +7,7 @@ import usePathMatch from "@/utils/pathCheck";
 import MobileMenus from "./MobileMenus";
 import { signOut, useSession } from "next-auth/react";
 import { FeaturedCategoriesData } from "@/data/CategoriesList";
+import { IMAGES } from "@/constants/IMAGES";
 
 const Header = () => {
 	const { data: user_session } = useSession();
@@ -68,7 +69,7 @@ const Header = () => {
 				<div className="absolute inset-0 ml-10  sm:mx-auto my-auto w-[100px]   md:w-[150px] h-[80px]  ">
 					<Link href={"/"}>
 						<Image
-							src={"/Images/logo.svg"}
+							src={IMAGES.logo}
 							alt="logo"
 							fill
 							className=" object-cover"

@@ -31,16 +31,14 @@ const HeroBanner = ({ product }: { product: IProduct }) => {
 			<div className=" flex-grow md:flex-none flex flex-col sm:flex-row sm:items-end">
 				<div className="relative">
 					{/* Main image */}
-					<Image
-						src={
-							product?.image
-								? `${product?.image}.png`
-								: `/Images/image-1.png`
-						}
-						width={370}
-						height={436}
-						alt="test"
-					/>
+					{product?.image && (
+						<Image
+							src={`${product?.image}`}
+							width={370}
+							height={436}
+							alt="test"
+						/>
+					)}
 					{/* price tag */}
 					<p className="bg-[#FB8F2C] px-4 py-3  text-2xl  font-semibold font-libre absolute  bottom-20  sm:-left-8">
 						Price:$${product.price}

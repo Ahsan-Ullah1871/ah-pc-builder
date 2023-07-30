@@ -1,5 +1,6 @@
 import Title from "@/components/shared/Title";
 import { ICONS } from "@/constants/ICONS";
+import { IMAGES } from "@/constants/IMAGES";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,7 @@ const SignInUI = () => {
 		<div className="w-full h-full  bg-primary_dark grid grid-cols-1 md:grid-cols-2  ">
 			<div className=" w-full h-full absolute -z-0 md:z-auto md:relative ">
 				<Image
-					src={"/Images/signin.png"}
+					src={IMAGES.signin}
 					fill
 					className=" bg-[#EFF7FE]  object-contain"
 					alt="signIn"
@@ -48,7 +49,7 @@ const SignInUI = () => {
 						className=" mt-10 w-full px-2 py-3 rounded-md border  border-white/80 flex gap-4 items-center justify-center "
 					>
 						<Image
-							src={"/Images/github.png"}
+							src={IMAGES.github}
 							alt="google"
 							width={30}
 							height={30}

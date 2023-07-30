@@ -14,16 +14,14 @@ const Product = ({ product }: { product: IProduct }) => {
 		<div className=" w-[280px] md:w-[370px] flex flex-col gap-4">
 			{/* Image */}
 			<div className=" relative w-full h-[300px] ">
-				<Image
-					alt=""
-					className=" object-contain bg-white"
-					src={
-						product?.image
-							? `${product?.image}.png`
-							: `/Images/image-1.png`
-					}
-					fill
-				/>
+				{product?.image && (
+					<Image
+						alt=""
+						className=" object-contain bg-white"
+						src={`${product?.image}`}
+						fill
+					/>
+				)}
 			</div>
 
 			{/* Desc */}

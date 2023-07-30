@@ -1,3 +1,4 @@
+import { IMAGES } from "@/constants/IMAGES";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -14,7 +15,7 @@ const Footer = () => {
 						className=" relative w-[100px]     h-[80px] md:h-[100px]"
 					>
 						<Image
-							src={"/Images/logo.svg"}
+							src={IMAGES.logo}
 							alt="logo"
 							fill
 							className=" object-cover"
@@ -27,7 +28,8 @@ const Footer = () => {
 
 				<div className="mt-auto">
 					<p className=" text-base text-[#FFFFFF] font-jakarta">
-						Download the WowWraps app today.
+						Craft Your Perfect PC: Unleash Your
+						Computing Potential!
 					</p>
 				</div>
 			</div>
