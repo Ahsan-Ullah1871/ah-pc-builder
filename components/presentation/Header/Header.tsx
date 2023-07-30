@@ -125,7 +125,7 @@ const Header = () => {
 						href={"/pc-builder"}
 						className={[
 							"text-base font-normal font-jakarta ",
-							usePathMatch("/contact")
+							usePathMatch("/pc-builder")
 								? "text-[#FB8F2C]"
 								: "text-white",
 						].join(" ")}
