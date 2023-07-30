@@ -8,11 +8,15 @@ import { useRouter } from "next/router";
 import Rating from "@/components/shared/Rating";
 import List from "@/components/shared/List";
 import { getThumbnailImage } from "@/constants/Functions";
+import Link from "next/link";
 
 const Product = ({ product }: { product: IProduct }) => {
 	const router = useRouter();
 	return (
-		<div className=" w-[280px] md:w-[370px] flex flex-col gap-4">
+		<Link
+			href={`/products/${product._id}`}
+			className=" w-[280px] md:w-[370px] flex flex-col gap-4"
+		>
 			{/* Image */}
 			<div className=" relative w-full h-[300px] ">
 				{product?.image && (
@@ -71,7 +75,7 @@ const Product = ({ product }: { product: IProduct }) => {
 					className=" justify-start"
 				/>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

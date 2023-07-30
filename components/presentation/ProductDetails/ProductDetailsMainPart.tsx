@@ -3,7 +3,7 @@ import Description from "@/components/shared/Description";
 import List from "@/components/shared/List";
 import Rating from "@/components/shared/Rating";
 import Title from "@/components/shared/Title";
-import { IProduct } from "@/types/CommonType";
+import { IProduct, IReview } from "@/types/CommonType";
 import Image from "next/image";
 import React from "react";
 
@@ -12,6 +12,21 @@ const ProductDetailsMainPart = ({
 }: {
 	product_details: IProduct;
 }) => {
+	let list_items = [
+		{
+			title: `Category :`,
+			value: product_details?.category,
+		},
+		{
+			title: `Status :`,
+			value: product_details?.status,
+		},
+		...product_details?.key_features?.map((feature) => ({
+			title: `${feature.split(":")[0]} : `,
+			value: feature.split(":")[1],
+		})),
+	];
+
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 			<div className="w-full ">
@@ -47,16 +62,7 @@ const ProductDetailsMainPart = ({
 				/>
 
 				{/* list */}
-				<List
-					items={product_details?.key_features?.map(
-						(feature) => ({
-							title: `${
-								feature.split(":")[0]
-							} : `,
-							value: feature.split(":")[1],
-						})
-					)}
-				/>
+				{product_details && <List items={list_items} />}
 			</div>
 		</div>
 	);

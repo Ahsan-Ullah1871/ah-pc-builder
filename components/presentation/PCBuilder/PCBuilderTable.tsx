@@ -1,10 +1,12 @@
 import BuilderItem from "@/components/core/PCBuilder/BuilderItem";
 import BuilderItemInMobile from "@/components/core/PCBuilder/BuilderItemInMobile";
+import Modal from "@/components/shared/Modal";
 import PrimaryButton from "@/components/shared/PrimaryButton";
 import { ICONS } from "@/constants/ICONS";
 import { ICategory, IProduct } from "@/types/CommonType";
 import { useAppContext } from "@/utils/Context";
-import React from "react";
+import React, { useRef } from "react";
+import BuildSuccess from "./BuildSuccess";
 
 const PCBuilderTable = ({ categories }: { categories: ICategory[] }) => {
 	const { builder_items } = useAppContext();
@@ -29,6 +31,7 @@ const PCBuilderTable = ({ categories }: { categories: ICategory[] }) => {
 		<div
 			className="max-w-4xl mx-auto bg-[rgba(255,255,255,0.10)] border 
         border-[rgba(255,255,255,0.80)]   border-opacity-5 min-h-[200px] "
+			id="builder_div"
 		>
 			<ul className="hidden sm:block">
 				{/* Header */}
@@ -65,9 +68,19 @@ const PCBuilderTable = ({ categories }: { categories: ICategory[] }) => {
 						Subtotal: {"   "}${total_price}
 					</p>
 					<p className=" text-center col-span-3 text-white font-jakarta text-lg font-semibold">
-						<PrimaryButton
-							disabled={!isAllItemsAdded}
-							title="Complete build"
+						<Modal
+							modal_button={{
+								title: "Complete build",
+								className: "",
+								disabled: !isAllItemsAdded,
+							}}
+							modal_dialog={{
+								components: (
+									<BuildSuccess />
+								),
+								close_button_title:
+									"Close",
+							}}
 						/>
 					</p>
 				</li>
@@ -82,6 +95,27 @@ const PCBuilderTable = ({ categories }: { categories: ICategory[] }) => {
 						/>
 					);
 				})}
+				<div className="  flex items-center flex-wrap px-2 justify-end gap-4 py-4  border-b border-b-white/80 border-opacity-20">
+					<p className=" text-end  col-span-3 text-white font-jakarta text-lg font-semibold flex items-center justify-end">
+						Subtotal: {"   "}${total_price}
+					</p>
+					<p className=" text-center col-span-3 text-white font-jakarta text-lg font-semibold">
+						<Modal
+							modal_button={{
+								title: "Complete build",
+								className: "",
+								disabled: !isAllItemsAdded,
+							}}
+							modal_dialog={{
+								components: (
+									<BuildSuccess />
+								),
+								close_button_title:
+									"Close",
+							}}
+						/>
+					</p>
+				</div>
 			</div>
 		</div>
 	);

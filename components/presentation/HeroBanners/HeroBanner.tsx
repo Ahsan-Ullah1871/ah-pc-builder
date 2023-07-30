@@ -1,4 +1,5 @@
 import SecondaryButton from "@/components/shared/SecondaryButton";
+import { IMAGES } from "@/constants/IMAGES";
 import { IProduct } from "@/types/CommonType";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -22,7 +23,11 @@ const HeroBanner = ({ product }: { product: IProduct }) => {
 
 				{/* button */}
 				<SecondaryButton
-					onClick={(e) => router.push("/products")}
+					onClick={(e) =>
+						router.push(
+							`/products/${product._id}`
+						)
+					}
 					title={product.name}
 					button_styles="mt-10 text-primary"
 				/>
@@ -33,14 +38,15 @@ const HeroBanner = ({ product }: { product: IProduct }) => {
 					{/* Main image */}
 					{product?.image && (
 						<Image
-							src={`${product?.image}`}
+							src={`${IMAGES?.shop1}`}
 							width={370}
 							height={436}
 							alt="test"
+							className="  rounded-r-2xl"
 						/>
 					)}
 					{/* price tag */}
-					<p className="bg-[#FB8F2C] px-4 py-3  text-2xl  font-semibold font-libre absolute  bottom-20  sm:-left-8">
+					<p className="bg-[#FB8F2C] text-white px-4 py-3  text-2xl  font-semibold font-libre absolute  bottom-20  sm:-left-8">
 						Price:$${product.price}
 					</p>
 				</div>

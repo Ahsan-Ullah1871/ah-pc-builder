@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { getThumbnailImage } from "@/constants/Functions";
 import { IMAGES } from "@/constants/IMAGES";
 import Image from "next/image";
 import React from "react";
@@ -10,7 +11,7 @@ const ShopGallery = () => {
 				<Image
 					alt=""
 					fill
-					src={IMAGES.shop1}
+					src={getThumbnailImage(IMAGES.shop1)}
 				/>
 			</div>
 			<div className=" row-span-2 w-full h-full     relative">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Tab } from "@headlessui/react";
 import { cn } from "@/utils/classNames";
 
@@ -12,8 +12,9 @@ type IButton = {
 	className?: string;
 };
 type IDescription = {
-	desc: string;
+	desc?: string;
 	className?: string;
+	description_component?: ReactNode;
 };
 
 type ITab = {
@@ -44,7 +45,7 @@ export default function TabCard({ buttons, descriptions }: ITab) {
 					))}
 				</Tab.List>
 				<Tab.Panels className="mt-2">
-					{descriptions.map((description, idx) => (
+					{descriptions?.map((description, idx) => (
 						<Tab.Panel
 							key={idx}
 							className={classNames(
@@ -52,14 +53,20 @@ export default function TabCard({ buttons, descriptions }: ITab) {
 								" "
 							)}
 						>
-							<p
-								className={cn(
-									"text-white font-jakarta text-base",
-									description.className
-								)}
-							>
-								{description?.desc}
-							</p>
+							{description?.desc && (
+								<p
+									className={cn(
+										"text-white font-jakarta text-base",
+										description.className
+									)}
+								>
+									{
+										description?.desc
+									}
+								</p>
+							)}
+							{description?.description_component &&
+								description?.description_component}
 						</Tab.Panel>
 					))}
 				</Tab.Panels>

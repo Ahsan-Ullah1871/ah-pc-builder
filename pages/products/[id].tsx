@@ -1,26 +1,31 @@
 import ProductDetailsMainPart from "@/components/presentation/ProductDetails/ProductDetailsMainPart";
 import TabCard from "@/components/shared/TabCard";
-import { IProduct } from "@/types/CommonType";
+import { IProduct, IReview } from "@/types/CommonType";
 import React from "react";
 import type {
 	InferGetStaticPropsType,
 	GetStaticProps,
 	GetStaticPaths,
 } from "next";
+import Reviews from "./Reviews";
 
 type ProductDetails = {
 	product_details: IProduct;
+	product_reviews: IReview[];
 };
 
 const ProductDetails = ({
 	product_details,
+	product_reviews,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<div className="px-4  py-10 md:py-20">
 			<div className="max-w-project w-full   mx-auto ">
-				<ProductDetailsMainPart
-					product_details={product_details}
-				/>
+				{product_details && (
+					<ProductDetailsMainPart
+						product_details={product_details}
+					/>
+				)}
 				<TabCard
 					buttons={[
 						{ title: "Description" },
@@ -31,7 +36,13 @@ const ProductDetails = ({
 							desc: product_details?.description,
 						},
 						{
-							desc: "N/A",
+							description_component: (
+								<Reviews
+									reviews={
+										product_reviews
+									}
+								/>
+							),
 						},
 					]}
 				/>
@@ -62,12 +73,18 @@ export const getStaticProps: GetStaticProps<ProductDetails> = async ({
 	params,
 }) => {
 	const base_url = process.env.BASE_URL;
-	// all products
+	//   product details
 	const product_details_res = await fetch(
 		`${base_url}/api/products/${params?.id}`
 	);
 	const product_details = await product_details_res.json();
+	// all products
+	const product_reviews_res = await fetch(
+		`${base_url}/api/reviews/${params?.id}`
+	);
 
-	return { props: { product_details } };
+	const product_reviews = await product_reviews_res.json();
+
+	return { props: { product_details, product_reviews } };
 };
 
