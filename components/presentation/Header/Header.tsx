@@ -66,6 +66,7 @@ const Header = () => {
 					focus:text-[
 					#FB8F2C]"
 						items={FeaturedCategoriesData}
+						menu_items_styles="left-0"
 					/>
 					<Link
 						href={"/products"}
