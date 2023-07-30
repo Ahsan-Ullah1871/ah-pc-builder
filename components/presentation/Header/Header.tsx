@@ -36,8 +36,18 @@ const Header = () => {
 					#FB8F2C]"
 						items={FeaturedCategoriesData}
 					/>
-
 					<Link
+						href={"/products"}
+						className={[
+							"text-base font-normal font-jakarta ",
+							usePathMatch("/products")
+								? "text-[#FB8F2C]"
+								: "text-white",
+						].join(" ")}
+					>
+						All products
+					</Link>
+					{/* <Link
 						href={"/blogs"}
 						className={[
 							"text-base font-normal font-jakarta ",
@@ -58,7 +68,7 @@ const Header = () => {
 						].join(" ")}
 					>
 						Contact
-					</Link>
+					</Link> */}
 				</div>
 
 				{/* Moble */}
