@@ -20,7 +20,7 @@ const TextArea = ({
 	row,
 }: ITextInput) => {
 	const defaultClassValue =
-		"border border-[#000] rounded min-h-20 px-4 py-5 font-inter text-[#000000]  bg-transparent outline-none ";
+		"border border-white rounded min-h-20 px-4 py-5 font-inter text-white   bg-transparent outline-none ";
 	return (
 		<div className="flex flex-col gap-2 ">
 			{label && <label htmlFor="text-box"> {label}</label>}{" "}

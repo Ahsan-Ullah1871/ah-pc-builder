@@ -43,8 +43,24 @@ const Header = () => {
 		}
 	}, [user_session]);
 
+	const [top, setTop] = useState(true);
+	// detect whether user has scrolled the page down by 10px
+	useEffect(() => {
+		const scrollHandler = () => {
+			window.pageYOffset > 20 ? setTop(false) : setTop(true);
+		};
+		window.addEventListener("scroll", scrollHandler);
+		return () => window.removeEventListener("scroll", scrollHandler);
+	}, [top]);
+
 	return (
-		<div className=" px-4 md:px-0 bg-[#111114] z-50 sticky inset-0 top-0 ">
+		<div
+			className={[
+				" px-4 md:px-0 bg-[#111114] z-50 sticky inset-0 top-0 ",
+				!top &&
+					"bg-[#060607] shadow-lg   bg-opacity-95 transition duration-300 ease-in-out ",
+			].join(" ")}
+		>
 			<div className="    max-w-project  h-[80px]  mx-auto flex items-center justify-between py-2">
 				{/* Desktop Menus */}
 				<div className=" hidden md:flex items-center justify-start gap-8">

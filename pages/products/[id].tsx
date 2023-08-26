@@ -1,7 +1,7 @@
 import ProductDetailsMainPart from "@/components/presentation/ProductDetails/ProductDetailsMainPart";
 import TabCard from "@/components/shared/TabCard";
 import { IProduct, IReview } from "@/types/CommonType";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import type {
 	InferGetStaticPropsType,
 	GetStaticProps,
@@ -20,18 +20,6 @@ const ProductDetails = ({
 	product_details,
 	product_reviews,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-	const { data: user_session } = useSession();
-
-	let isHaveUserReview = user_session
-		? product_reviews.filter(
-				(rv) =>
-					rv?.reviewed_by.email ==
-					user_session?.user?.email
-		  )?.length > 0
-			? true
-			: false
-		: true;
-
 	return (
 		<div className="px-4  py-10 md:py-20">
 			<div className="max-w-project w-full   mx-auto ">
@@ -60,7 +48,6 @@ const ProductDetails = ({
 						},
 					]}
 				/>
-				{!isHaveUserReview && <WriteReviewForm />}{" "}
 			</div>
 		</div>
 	);
@@ -100,6 +87,6 @@ export const getStaticProps: GetStaticProps<ProductDetails> = async ({
 
 	const product_reviews = await product_reviews_res.json();
 
-	return { props: { product_details, product_reviews }, revalidate: 180 };
+	return { props: { product_details, product_reviews }, revalidate: 60 };
 };
 

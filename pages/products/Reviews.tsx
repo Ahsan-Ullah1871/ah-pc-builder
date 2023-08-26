@@ -1,12 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
+import WriteReviewForm from "@/components/core/ProductDetails/WriteReviewForm";
 import Description from "@/components/shared/Description";
 import Rating from "@/components/shared/Rating";
 import Title from "@/components/shared/Title";
 import { IReview } from "@/types/CommonType";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Reviews = ({ reviews }: { reviews: IReview[] }) => {
+	const { data: user_session } = useSession();
+
+	const [isHaveUserReview, setIsHaveUserReview] = useState(true);
+
+	useEffect(() => {
+		setIsHaveUserReview(
+			user_session
+				? reviews.filter(
+						(rv) =>
+							rv?.reviewed_by.email ==
+							user_session?.user?.email
+				  )?.length > 0
+					? true
+					: false
+				: true
+		);
+	}, [user_session, reviews]);
+
 	return (
 		<div className="w-full py-4 flex flex-col gap-8">
 			{reviews?.map((review) => {
@@ -53,6 +73,12 @@ const Reviews = ({ reviews }: { reviews: IReview[] }) => {
 					</div>
 				);
 			})}
+
+			{!isHaveUserReview && (
+				<WriteReviewForm
+					setIsHaveUserReview={setIsHaveUserReview}
+				/>
+			)}
 		</div>
 	);
 };

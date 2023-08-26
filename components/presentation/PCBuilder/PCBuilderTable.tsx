@@ -67,7 +67,7 @@ const PCBuilderTable = ({ categories }: { categories: ICategory[] }) => {
 					<p className=" text-end  col-span-3 text-white font-jakarta text-lg font-semibold flex items-center justify-end">
 						Subtotal: {"   "}${total_price}
 					</p>
-					<p className=" text-center col-span-3 text-white font-jakarta text-lg font-semibold">
+					<p className=" text-center col-span-3 text-white font-jakarta text-lg font-semibold flex items-center justify-center">
 						<Modal
 							modal_button={{
 								title: "Complete build",

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { type } from "os";
 import { cn } from "@/utils/classNames";
+import { ICONS } from "@/constants/ICONS";
 
 type IButton = {
 	title: string;
@@ -9,6 +10,7 @@ type IButton = {
 	onClick?: (e: any) => void;
 	disabled?: boolean;
 	type?: "button" | "submit" | "reset";
+	isLoading?: boolean;
 };
 
 const PrimaryButton = ({
@@ -16,6 +18,7 @@ const PrimaryButton = ({
 	onClick,
 	button_styles,
 	disabled = false,
+	isLoading = false,
 	type = "button",
 }: IButton) => {
 	return (
@@ -23,7 +26,7 @@ const PrimaryButton = ({
 			type={type}
 			disabled={disabled}
 			className={cn(
-				`group relative font-jakarta text-base     border-2 px-4 py-2 ${
+				`group relative font-jakarta text-base     border-2 px-4 py-2 flex items-center justify-center gap-4 ${
 					disabled
 						? " cursor-not-allowed !bg-gray-400"
 						: "cursor-pointer"
@@ -46,6 +49,7 @@ const PrimaryButton = ({
 			onClick={(e) => onClick && onClick(e)}
 		>
 			{title}
+			{isLoading && ICONS.button_loading_icon}
 		</motion.button>
 	);
 };
